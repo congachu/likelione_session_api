@@ -51,4 +51,12 @@ jobs:
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
             docker stop myapp || true
             docker rm myapp || true
-            docker run -d --name myapp -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
+            docker run -d \
+              --name myapp \
+              --network app-network \
+              -p 8080:8080 \
+              -e SPRING_PROFILES_ACTIVE=prod \
+              -e DB_URL="${{ secrets.DB_URL }}" \
+              -e DB_USERNAME="${{ secrets.DB_USERNAME }}" \
+              -e DB_PASSWORD="${{ secrets.DB_PASSWORD }}" \
+              ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest
