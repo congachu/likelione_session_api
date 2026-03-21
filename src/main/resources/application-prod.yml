@@ -5,7 +5,7 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://RDS주소:5432/mydb
+    url: jdbc:postgresql://RDS주소:5432/likelion
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
 
