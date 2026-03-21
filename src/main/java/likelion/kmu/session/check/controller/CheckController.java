@@ -13,7 +13,7 @@ import java.util.Map;
 @RequestMapping("/api/check")
 public class CheckController {
 
-    @GetMapping("/")
+    @GetMapping("")
     @ResponseBody
     public ResponseEntity<CheckResponseDTO> check(){
         return ResponseEntity.ok(new  CheckResponseDTO("ok"));
