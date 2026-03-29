@@ -1,5 +1,6 @@
 package likelion.kmu.session.post.entity.dto.request;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,9 +13,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UploadPostRequestDTO {
     @NotBlank(message = "제목이 비어있습니다.")
+    @Schema(name = "title", example = "제목입니다.")
     private String title;
 
     @NotBlank(message = "내용이 비어있습니다.")
+    @Schema(name = "content", example = "내용입니다.")
     private String content;
 
 }
